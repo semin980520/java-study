@@ -2,7 +2,7 @@ package C07ExceptionFileParsing;
 
 import java.util.Scanner;
 
-public class C01Exception {
+public class C01ExceptionBasic {
     public static void main(String[] args) {
 
 //        예외처리 기본 : 예외가 발생할 것으로 예상되는 코드를 try로 감싼다.

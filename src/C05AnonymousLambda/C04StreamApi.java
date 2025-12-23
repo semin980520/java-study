@@ -58,7 +58,7 @@ public class C04StreamApi {
 //        int totalLength = Arrays.stream(stArr).mapToInt(a->a.length()).sum();
 //        System.out.println(totalLength);
 
-        int[] arr ={1,2,3,4,5,6};
+//        int[] arr ={1,2,3,4,5,6};
 ////        실습1 . arr에서 홀수만 담은 배열을 생성 후 배열 출력
 //        int[] total1 = Arrays.stream(arr).filter(a->a%2!=0).toArray();
 //        System.out.println(Arrays.toString(total1));
@@ -110,12 +110,12 @@ public class C04StreamApi {
 //        Arrays.stream(stArr).forEach(a-> System.out.println(a));
 //        Arrays.stream(stArr).forEach(System.out::println);
 
-        List<student> myList = new ArrayList<>();
-        myList.add(new student(20,"kim"));
-        myList.add(new student(30,"choi"));
-        myList.add(new student(35,"lee"));
-        myList.add(new student(22,"park"));
-//
+//        List<student> myList = new ArrayList<>();
+//        myList.add(new student(20,"kim"));
+//        myList.add(new student(30,"choi"));
+//        myList.add(new student(35,"lee"));
+//        myList.add(new student(22,"park"));
+
 ////        1)모든 객체의 평균나이(average함수)
 //        double averageAge = myList.stream().mapToInt(a->a.getAge()).average().getAsDouble();
 //        System.out.println(averageAge);
@@ -205,30 +205,30 @@ public class C04StreamApi {
 
     }
 }
-class student {
-    int age;
-    String name;
-
-    public int getAge() {
-        return age;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    @Override
-    public String toString() {
-        return "{" +
-                "age=" + age +
-                ", name='" + name + '\'' +
-                '}';
-    }
-
-    public student(int age, String name) {
-        this.age = age;
-        this.name = name;
-
-
-    }
-}
+//class student {
+//    int age;
+//    String name;
+//
+//    public int getAge() {
+//        return age;
+//    }
+//
+//    public String getName() {
+//        return name;
+//    }
+//
+//    @Override
+//    public String toString() {
+//        return "{" +
+//                "age=" + age +
+//                ", name='" + name + '\'' +
+//                '}';
+//    }
+//
+//    public student(int age, String name) {
+//        this.age = age;
+//        this.name = name;
+//
+//
+//    }
+//}
