@@ -1,9 +1,10 @@
 package C07ExceptionFileParsing.MemberException;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
-//핵심로직을 구현하는 계층
+//핵심로직(비지니스로직)을 구현하는 계층
 public class MemberService {
     private MemberRepository memberRepository;
 
@@ -27,7 +28,7 @@ public class MemberService {
 
     }
 
-    public Member findById(long id) {
+    public Member findById(long id) throws NoSuchElementException {
 
         Optional<Member> member = memberRepository.findById(id);
         return member.orElseThrow(() -> new IllegalArgumentException("id가 없습니다."));
@@ -39,17 +40,15 @@ public class MemberService {
     public List<Member> findAll(){
         return memberRepository.findAll();
     }
-    public void login(String email, String password){
+    public void login(String email, String password) throws NoSuchElementException,IllegalArgumentException {
         Optional <Member> member =memberRepository.findByEmail(email);
 //        둘중 하나 틀릴때
 //        member.filter(a->a.getPassword().equals(password)).orElseThrow(()-> new IllegalArgumentException("email 혹은 password가 잘못됐습니다."));
 
 //        이메일이 틀릴때
-       member.orElseThrow(()-> new IllegalArgumentException("email이 잘못됐습니다."));
-
+        member.orElseThrow(()->new NoSuchElementException("해당하는 이메일이 없습니다."));
 //        비밀번호 틀릴때
-        member.filter(a->a.getPassword().equals(password)).orElseThrow(()->new IllegalArgumentException("비밀번호가 잘못됐습니다."));
-
+        member.filter(a->a.getPassword().equals(password)).orElseThrow(()->new IllegalArgumentException("비밀번호가 틀렸습니다."));
         }
 
     }

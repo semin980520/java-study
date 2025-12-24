@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-// 저장소역할을 하는 계층
+// 저장소역할을 하는 계층 실제는 db
 // DB에 CRUD를 수행하는 계층
 public class MemberRepository {
 
@@ -28,6 +28,8 @@ public class MemberRepository {
             }
         }
         return Optional.ofNullable(member);
+////        스트림으로 간편하게 바꿀 수 있음.
+//    return this.memberList.stream().filter(a->a.getEmail().equals(email)).findFirst();
     }
 
     public Optional <Member> findById(long id) {

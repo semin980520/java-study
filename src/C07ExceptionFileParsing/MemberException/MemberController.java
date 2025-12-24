@@ -1,6 +1,7 @@
 package C07ExceptionFileParsing.MemberException;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 //사용자와 인터페이싱(입출력)하는 계층
@@ -13,20 +14,24 @@ public class MemberController {
             String input = sc.nextLine();
             if (input.equals("1")) {
                 System.out.println("회원가입서비스입니다.");
-               try {
-                   System.out.println("이름을입력해주세요");
-                   String name = sc.nextLine();
-                   System.out.println("이메일을 입력해주세요");
-                   String email = sc.nextLine();
-                   System.out.println("비밀번호를 입력해주세요");
-                   String password = sc.nextLine();
-                   memberService.register(name, email, password);
+                try {
+                    System.out.println("이름을입력해주세요");
+                    String name = sc.nextLine();
+                    System.out.println("이메일을 입력해주세요");
+                    String email = sc.nextLine();
+                    System.out.println("비밀번호를 입력해주세요");
+                    String password = sc.nextLine();
+//                   사용자의 입력값 단순겁증
+                    if (password.length() < 10 || email.length() < 10) {
+                        System.out.println("입력값이 너무 짧습니다.");
+                    }
+                    memberService.register(name, email, password);
 
-               } catch (IllegalArgumentException e) {
-                   System.out.println(e.getMessage());
-                   e.printStackTrace();
+                } catch (IllegalArgumentException e) {
+                    System.out.println(e.getMessage());
+                    e.printStackTrace();
 
-               }
+                }
 
 
 //                회원가입시 발생하는 예외 적절히 try/catch
@@ -34,12 +39,13 @@ public class MemberController {
             } else if (input.equals("2")) {
                 System.out.println("회원상세조회입니다.");
                 System.out.println("회원ID값을 입력해주세요");
-                try {  long id = Long.parseLong(sc.nextLine());
+                try {
+                    long id = Long.parseLong(sc.nextLine());
 //                회원상세조회시 발생하는 예외를 적적히 try/catch
                     Member member = memberService.findById(id);
                     System.out.println(member);
 
-                }catch (IllegalArgumentException e){
+                } catch (IllegalArgumentException e) {
                     System.out.println(e.getMessage());
                     e.printStackTrace();
 
@@ -60,12 +66,16 @@ public class MemberController {
 //                예외처리: 예외발생시, 예외의 원인 출력
                     memberService.login(email, password);
                     System.out.println("로그인이 성공입니다.");
-                }catch (IllegalArgumentException e){
+                } catch (IllegalArgumentException e) {
                     System.out.println(e.getMessage());
                     e.printStackTrace();
 
-                }
+                } catch (NoSuchElementException e) {
+                    System.out.println(e.getMessage());
+                    e.printStackTrace();
 
+
+                }
             }
         }
     }
