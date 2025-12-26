@@ -59,16 +59,16 @@ public class ThreadMain {
 
 //        syncronized를 통한 동시성 제어 예시
 
-        StringBuffer sb1 = new StringBuffer();
-        sb1.append("hello"); // syncronized 메서드 -> 동시성 제어
-        StringBuilder sb2 = new StringBuilder();
-        sb2.append("hello"); // 일반메서드 -> 동시성 문제 방생 가능성 있음.
-
-
-        Map<String,String> myMap1 = new ConcurrentHashMap<>();
-        myMap1.put("java", "자바"); // syncronized 메서드
-        Map<String, String> myMap2 = new HashMap<>();
-        myMap2.put("java", "자바"); // 일반 메서드
+//        StringBuffer sb1 = new StringBuffer();
+//        sb1.append("hello"); // syncronized 메서드 -> 동시성 제어
+//        StringBuilder sb2 = new StringBuilder();
+//        sb2.append("hello"); // 일반메서드 -> 동시성 문제 방생 가능성 있음.
+//
+//
+//        Map<String,String> myMap1 = new ConcurrentHashMap<>();
+//        myMap1.put("java", "자바"); // syncronized 메서드
+//        Map<String, String> myMap2 = new HashMap<>();
+//        myMap2.put("java", "자바"); // 일반 메서드
 
 
 
